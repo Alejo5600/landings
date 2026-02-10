@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -73,8 +74,20 @@ app.get('/:landingName', (req, res) => {
   // Verificar si existe la carpeta y el index.html
   if (fs.existsSync(landingPath) && fs.statSync(landingPath).isDirectory()) {
     if (fs.existsSync(indexPath)) {
-      // Servir el index.html de la landing
-      res.sendFile(indexPath);
+      // Leer el HTML y reemplazar variables de entorno
+      let html = fs.readFileSync(indexPath, 'utf8');
+      
+      // Reemplazar placeholders con variables de entorno
+      const replacements = {
+        '{{META_PIXEL_ID}}': process.env.META_PIXEL_ID || '',
+        '{{HOTMART_PRODUCT_ID}}': process.env.HOTMART_PRODUCT_ID || '',
+      };
+      
+      Object.keys(replacements).forEach(placeholder => {
+        html = html.replace(new RegExp(placeholder.replace(/[{}]/g, '\\$&'), 'g'), replacements[placeholder]);
+      });
+      
+      res.send(html);
     } else {
       // Si la carpeta existe pero no tiene index.html, devolver 404
       res.status(404).sendFile(path.join(__dirname, '404.html'));

@@ -1,60 +1,39 @@
-PRD: Guía de Estilo Visual y UI Premium (v0/Lovable Style)
-1. Visión Estética
-El objetivo es crear landing pages con un diseño minimalista, moderno y de alta gama. Se debe evitar el aspecto de "plantilla de 2010". El diseño debe respirar, ser profesional y utilizar jerarquía visual clara para guiar al usuario hacia la conversión.
+# UI/UX MASTER RULES (LOVABLE/V0 STYLE)
 
-2. Fundamentos de Diseño (Tokens)
-A. Paleta de Colores y Contraste
-Fondo: Utilizar blancos puros (#FFFFFF) o grises extremadamente claros (#F9FAFB) para el cuerpo.
+## 1. Tech Stack
+- Use Tailwind CSS (CDN) for all styling.
+- Use Google Fonts: 'Inter' for body and 'Outfit' or 'Cal Sans' for headings.
 
-Superficies (Cards): Fondo blanco con bordes sutiles de 1px (#E5E7EB).
+## 2. Visual DNA (The "Lovable" Look)
+- **Whitespace:** Double the current padding. Use `py-20` to `py-32` for sections.
+- **Max-Width:** Content container must be `max-w-4xl` (narrower is more elegant for sales pages).
+- **Typography:** - Headings: `text-balance`, `tracking-tight`, `font-bold`.
+  - Body: `text-slate-600`, `leading-relaxed`.
+- **Buttons (CTAs):** - High contrast (Primary color vs White).
+  - Huge padding: `px-8 py-4`.
+  - Rounded-full (capsule style).
+  - Subtle `shadow-lg` and `hover:scale-105` transition.
+- **Cards:** White background, border `border-slate-100`, shadow `shadow-sm`.
 
-Texto: * Títulos: Negro profundo (#111827).
+## 3. Components to Mimic
+- **Hero:** Big centered heading, subtle gradient background (e.g., `bg-gradient-to-b from-slate-50 to-white`).
+- **Features:** Icons inside soft-colored circles (e.g., `bg-blue-50 text-blue-600`).
+- **Social Proof:** Testimonials in clean cards with small star ratings.
 
-Cuerpo: Gris oscuro legible (#374151).
+## 4. SISTEMA DE TEMAS AUTOMÁTICO
+Cursor, antes de diseñar, identifica la categoría del producto en `CONTENIDO_PRODUCTO.md` y aplica uno de estos temas:
 
-Secundario: Gris medio (#6B7280).
+- **Tema Soft (Crianza, Salud Mental, Bienestar):**
+  - Colores: Fondo `bg-rose-50/30`, Acento `text-rose-600`, Botones `bg-rose-500`.
+  - Bordes: `rounded-3xl` (muy redondeado).
+  - Fuentes: Serif para títulos (ej: 'Playfair Display').
 
-Acento (Acción): Elegir un color vibrante pero profesional (ej: Azul eléctrico #2563EB o Violeta moderno #7C3AED).
+- **Tema High-Energy (Fitness, Dinero, Ventas):**
+  - Colores: Fondo `bg-slate-950`, Texto `text-white`, Acento `text-lime-400`, Botones `bg-lime-400 text-black`.
+  - Bordes: `rounded-lg` (más rectos).
+  - Fuentes: Sans-serif bold (ej: 'Archivo Black').
 
-B. Tipografía (Jerarquía)
-Fuente: Usar fuentes sans-serif modernas (Inter, Geist o Montserrat).
-
-Escala: * H1: Extra Bold, tracking reducido (-0.02em).
-
-H2: Semi Bold, con mucho espacio superior.
-
-Cuerpo: Línea de altura (line-height) amplia (1.6 a 1.8) para máxima legibilidad.
-
-C. Bordes y Sombras (Soft UI)
-Radios: Botones y cards deben tener border-radius: 12px o 16px (evitar esquinas cuadradas).
-
-Sombras: Usar sombras muy suaves y difusas (Soft Shadows). Ejemplo: box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1).
-
-3. Componentes de Alta Conversión 
-Componente,Regla de Diseño
-Botones (CTA),"Grandes, con padding generoso (12px 24px), efecto hover sutil (aclarar color) y transición de 0.2s."
-Cards de Bonos,Fondo ligeramente distinto o borde de color acento para destacar.
-Inputs de Formulario,"Altura mínima de 48px, bordes gris claro, foco con anillo de color de acento."
-Secciones,Padding vertical amplio (mínimo 80px en desktop) para separar ideas.
-
-4. Reglas de Layout (Composición)
-Whitespace: "Si dudas, añade más espacio". No amontones elementos.
-
-Max-Width: El contenido nunca debe tocar los bordes de la pantalla. Usar un contenedor de máximo 1200px centrado.
-
-Mobile-First: Priorizar el diseño en una sola columna con fuentes grandes para lectura fácil en móviles.
-
-Imágenes: Deben tener bordes redondeados y, de ser posible, una sombra muy leve para dar profundidad.
-
-5. Instrucciones Técnicas para Cursor
-"Cursor, al programar el CSS de las landings, sigue estas reglas técnicas:
-
-Utiliza CSS Moderno (Flexbox y Grid).
-
-Implementa Variables CSS en el :root para colores y espaciados.
-
-Añade una sección de 'Reset' básica para que todo se vea igual en todos los navegadores.
-
-Asegúrate de que los botones tengan cursor: pointer y estados :hover animados.
-
-Usa box-sizing: border-box en todos los elementos.
+- **Tema Corporate/Elegance (B2B, Libros, Productividad):**
+  - Colores: Fondo `bg-white`, Acento `text-indigo-600`, Botones `bg-indigo-600`.
+  - Bordes: `rounded-xl`.
+  - Estilo: Bordes finos `border-slate-200`, sombras sutiles.

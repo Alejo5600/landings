@@ -1,0 +1,532 @@
+# THEMES_LOVABLE.css
+## Sistema de Temas Completos para Landing Pages
+
+Este archivo contiene las tres configuraciones de tema completas. Copia el tema que necesites según tu producto.
+
+---
+
+## TEMA 1: SOFT (Crianza, Salud Mental, Bienestar, Maternidad)
+
+```css
+/* ============================================
+   TEMA SOFT - Variables CSS
+   ============================================ */
+:root {
+  /* Paleta Primary (Rose/Pink) */
+  --primary-50: #fef2f2;
+  --primary-100: #fee2e2;
+  --primary-200: #fecaca;
+  --primary-300: #fca5a5;
+  --primary-400: #f87171;
+  --primary-500: #ef4444;
+  --primary-600: #dc2626;
+  --primary-700: #b91c1c;
+  --primary-800: #991b1b;
+  --primary-900: #7f1d1d;
+  --primary-rgb: 220, 38, 38; /* Para sombras */
+  
+  /* Neutrals */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  
+  /* Semánticos */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+/* ============================================
+   TEMA SOFT - Clases Utility
+   ============================================ */
+
+/* Fondos */
+.bg-primary-soft { background-color: var(--primary-50); opacity: 0.3; }
+.bg-primary { background-color: var(--primary-600); }
+.bg-gradient-soft {
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #f8fafc 100%);
+}
+
+/* Textos */
+.text-primary { color: var(--primary-600); }
+.text-primary-light { color: var(--primary-500); }
+
+/* Botones Primary */
+.btn-soft-primary {
+  background: linear-gradient(to right, var(--primary-600), var(--primary-700));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 
+    0 4px 14px 0 rgba(var(--primary-rgb), 0.39),
+    0 0 0 1px rgba(var(--primary-rgb), 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-soft-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 24px 0 rgba(var(--primary-rgb), 0.45),
+    0 0 0 1px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Bordes */
+.border-soft { border-radius: 1.5rem; } /* 24px - muy redondeado */
+
+/* Cards */
+.card-soft {
+  background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 
+    0 0 0 1px rgba(0,0,0,.03),
+    0 2px 4px rgba(0,0,0,.05),
+    0 12px 24px rgba(0,0,0,.05);
+  border: 1px solid var(--slate-100);
+  transition: all 0.5s ease;
+}
+
+.card-soft:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 
+    0 0 0 1px rgba(0,0,0,.03),
+    0 4px 6px rgba(0,0,0,.05),
+    0 20px 40px rgba(0,0,0,.08);
+}
+```
+
+### Tipografía Recomendada (Tema Soft):
+```html
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+  body { font-family: 'Inter', sans-serif; }
+</style>
+```
+
+### Ejemplo de Uso (Tema Soft):
+```html
+<section class="bg-gradient-soft py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-5xl font-extrabold text-slate-900 mb-8">
+      Título <span class="text-primary">con acento</span>
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-soft">
+        <h3 class="text-2xl font-bold text-slate-900 mb-4">Beneficio 1</h3>
+        <p class="text-slate-600">Descripción...</p>
+      </div>
+    </div>
+    
+    <button class="btn-soft-primary">Comprar Ahora</button>
+  </div>
+</section>
+```
+
+---
+
+## TEMA 2: HIGH-ENERGY (Fitness, Dinero, Ventas, Emprendimiento)
+
+```css
+/* ============================================
+   TEMA HIGH-ENERGY - Variables CSS
+   ============================================ */
+:root {
+  /* Paleta Primary (Lime/Green Eléctrico) */
+  --primary-50: #f7fee7;
+  --primary-100: #ecfccb;
+  --primary-200: #d9f99d;
+  --primary-300: #bef264;
+  --primary-400: #a3e635;
+  --primary-500: #84cc16;
+  --primary-600: #65a30d;
+  --primary-700: #4d7c0f;
+  --primary-800: #3f6212;
+  --primary-900: #365314;
+  --primary-rgb: 101, 163, 13;
+  
+  /* Fondo Oscuro */
+  --bg-dark: #0f172a;
+  --bg-dark-lighter: #1e293b;
+  
+  /* Neutrals (adaptados para dark mode) */
+  --slate-50: #f8fafc;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-900: #0f172a;
+  
+  /* Semánticos */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+/* ============================================
+   TEMA HIGH-ENERGY - Clases Utility
+   ============================================ */
+
+/* Fondos */
+.bg-energy-dark { background-color: var(--bg-dark); }
+.bg-gradient-energy {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Textos */
+.text-energy { color: var(--primary-400); }
+.text-energy-dark { color: white; }
+
+/* Botones Primary */
+.btn-energy-primary {
+  background: linear-gradient(to right, var(--primary-400), var(--primary-500));
+  color: var(--bg-dark);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem; /* Más rectangular */
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 
+    0 4px 14px 0 rgba(var(--primary-rgb), 0.39),
+    0 0 0 1px rgba(var(--primary-rgb), 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-energy-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 24px 0 rgba(var(--primary-rgb), 0.55),
+    0 0 0 1px rgba(var(--primary-rgb), 0.2);
+}
+
+/* Bordes */
+.border-energy { border-radius: 0.5rem; } /* 8px - más rectos */
+
+/* Cards */
+.card-energy {
+  background-color: var(--bg-dark-lighter);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,.05),
+    0 4px 6px rgba(0,0,0,.3),
+    0 20px 40px rgba(0,0,0,.2);
+  border: 1px solid rgba(255,255,255,.1);
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.card-energy:hover {
+  transform: translateY(-0.5rem);
+  border-color: var(--primary-400);
+  box-shadow: 
+    0 0 0 1px var(--primary-400),
+    0 8px 12px rgba(0,0,0,.4),
+    0 24px 48px rgba(101, 163, 13, 0.2);
+}
+
+/* Efectos de Neón */
+.glow-energy {
+  text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5),
+               0 0 20px rgba(var(--primary-rgb), 0.3);
+}
+```
+
+### Tipografía Recomendada (Tema High-Energy):
+```html
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; }
+  body { font-family: 'Inter', sans-serif; }
+</style>
+```
+
+### Ejemplo de Uso (Tema High-Energy):
+```html
+<section class="bg-energy-dark py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-5xl font-extrabold text-white mb-4">
+      GENERA <span class="text-energy glow-energy">$10K/MES</span>
+    </h2>
+    <p class="text-xl text-slate-400 mb-8">
+      El sistema exacto de los vendedores top
+    </p>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-energy">
+        <h3 class="text-2xl font-bold mb-4">Paso 1</h3>
+        <p class="text-slate-400">Descripción...</p>
+      </div>
+    </div>
+    
+    <button class="btn-energy-primary">¡QUIERO ESTO AHORA!</button>
+  </div>
+</section>
+```
+
+---
+
+## TEMA 3: ELEGANCE (B2B, Productividad, Educación, Servicios Profesionales)
+
+```css
+/* ============================================
+   TEMA ELEGANCE - Variables CSS
+   ============================================ */
+:root {
+  /* Paleta Primary (Indigo/Blue Profesional) */
+  --primary-50: #eef2ff;
+  --primary-100: #e0e7ff;
+  --primary-200: #c7d2fe;
+  --primary-300: #a5b4fc;
+  --primary-400: #818cf8;
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-800: #3730a3;
+  --primary-900: #312e81;
+  --primary-rgb: 79, 70, 229;
+  
+  /* Neutrals */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  
+  /* Semánticos */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+/* ============================================
+   TEMA ELEGANCE - Clases Utility
+   ============================================ */
+
+/* Fondos */
+.bg-elegance { background-color: white; }
+.bg-gradient-elegance {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #eef2ff 100%);
+}
+
+/* Textos */
+.text-primary { color: var(--primary-600); }
+.text-primary-light { color: var(--primary-500); }
+
+/* Botones Primary */
+.btn-elegance-primary {
+  background: linear-gradient(to right, var(--primary-600), var(--primary-700));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 
+    0 4px 14px 0 rgba(var(--primary-rgb), 0.39),
+    0 0 0 1px rgba(var(--primary-rgb), 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-elegance-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 24px 0 rgba(var(--primary-rgb), 0.45),
+    0 0 0 1px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Botones Secondary */
+.btn-elegance-secondary {
+  background: white;
+  color: var(--slate-700);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 2px solid var(--slate-200);
+  transition: all 0.2s ease;
+}
+
+.btn-elegance-secondary:hover {
+  background-color: var(--slate-50);
+  border-color: var(--slate-300);
+}
+
+/* Bordes */
+.border-elegance { border-radius: 0.75rem; } /* 12px - equilibrado */
+
+/* Cards */
+.card-elegance {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 
+    0 0 0 1px rgba(0,0,0,.03),
+    0 2px 4px rgba(0,0,0,.05),
+    0 12px 24px rgba(0,0,0,.05);
+  border: 1px solid var(--slate-200);
+  transition: all 0.5s ease;
+}
+
+.card-elegance:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 
+    0 0 0 1px rgba(0,0,0,.03),
+    0 4px 6px rgba(0,0,0,.05),
+    0 20px 40px rgba(0,0,0,.08);
+  border-color: var(--primary-200);
+}
+
+/* Glassmorphism */
+.glass-elegance {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+```
+
+### Tipografía Recomendada (Tema Elegance):
+```html
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+  body { font-family: 'Inter', sans-serif; }
+</style>
+```
+
+### Ejemplo de Uso (Tema Elegance):
+```html
+<section class="bg-gradient-elegance py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-5xl font-extrabold text-slate-900 mb-4">
+      Acelera Tu <span class="text-primary">Productividad</span>
+    </h2>
+    <p class="text-xl text-slate-600 mb-12">
+      El sistema que usan equipos de alto rendimiento
+    </p>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-elegance">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 shadow-lg mb-6">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4">Eficiencia</h3>
+        <p class="text-slate-600">Descripción...</p>
+      </div>
+    </div>
+    
+    <button class="btn-elegance-primary">Comenzar Ahora</button>
+  </div>
+</section>
+```
+
+---
+
+## GUÍA DE DECISIÓN RÁPIDA
+
+### ¿Qué tema usar para mi producto?
+
+**TEMA SOFT (Rose/Pink):**
+- Crianza y maternidad
+- Salud mental y bienestar
+- Nutrición y dietas
+- Relaciones y parejas
+- Desarrollo personal emocional
+- Yoga y mindfulness
+
+**TEMA HIGH-ENERGY (Lime/Dark):**
+- Fitness y gimnasio
+- Ventas y prospección
+- Trading y finanzas
+- Negocios digitales
+- Marketing agresivo
+- Emprendimiento rápido
+
+**TEMA ELEGANCE (Indigo):**
+- SaaS y software B2B
+- Consultoría empresarial
+- Educación corporativa
+- Productividad y gestión
+- Libros y cursos técnicos
+- Servicios profesionales
+
+---
+
+## SNIPPETS ÚTILES (Funcionan en los 3 Temas)
+
+### Scroll Reveal Animation:
+```html
+<section class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+  <!-- Contenido -->
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('opacity-0', 'translate-y-8');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+</script>
+```
+
+### Contador Animado:
+```html
+<div class="text-6xl font-extrabold">
+  <span class="counter" data-target="10000">0</span>+
+</div>
+
+<script>
+document.querySelectorAll('.counter').forEach(counter => {
+  const target = +counter.getAttribute('data-target');
+  const increment = target / 100;
+  let current = 0;
+  
+  const update = () => {
+    current += increment;
+    if (current < target) {
+      counter.innerText = Math.ceil(current).toLocaleString();
+      setTimeout(update, 20);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
+  };
+  
+  const obs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { update(); obs.disconnect(); }
+  });
+  obs.observe(counter);
+});
+</script>
+```
+
+---
+
+## IMPLEMENTACIÓN RÁPIDA
+
+### Paso 1: Copia el bloque CSS del tema elegido
+### Paso 2: Agrega las fuentes de Google
+### Paso 3: Usa las clases utility (.btn-[tema]-primary, .card-[tema], etc.)
+### Paso 4: Ajusta los colores RGB en las variables si necesitas personalizar
+
+**¡Listo!** Tu landing tendrá el look profesional de Lovable.

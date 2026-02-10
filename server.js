@@ -1,9 +1,13 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Habilitar compresión gzip
+app.use(compression());
 
 // Deshabilitar el listado de directorios
 app.use((req, res, next) => {

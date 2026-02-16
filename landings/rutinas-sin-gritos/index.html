@@ -72,7 +72,7 @@
       "undefined"!=typeof exports?exports.loadCSS=e:f.loadCSS=e
     })("undefined"!=typeof global?global:this)
   </script>
-  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
     :root{
@@ -546,9 +546,12 @@
 
   <!-- Scripts -->
   <script>
-    !function(){
+    (function(){
       "use strict";
-      const e=document.getElementById("stickyCta");
+      
+      // Función para inicializar cuando el DOM y Tailwind estén listos
+      function init(){
+        const e=document.getElementById("stickyCta");
       if(e){
         let n=!1,o=0;
         function c(){
@@ -563,13 +566,27 @@
           n||(window.requestAnimationFrame(c),n=!0)
         },{passive:!0})
       }
+      // Función para verificar si un elemento está visible en el viewport
+      function isElementVisible(el){
+        const rect=el.getBoundingClientRect();
+        const windowHeight=window.innerHeight||document.documentElement.clientHeight;
+        // El elemento está visible si está dentro del viewport o muy cerca (200px arriba)
+        return rect.top<windowHeight+200&&rect.bottom>-200
+      }
+      
       const t=new IntersectionObserver(function(e){
         e.forEach(function(e){
           e.isIntersecting&&e.target.classList.add("revealed")
         })
       },{threshold:.1});
+      
+      // Revelar inmediatamente las secciones que ya están visibles al cargar
       document.querySelectorAll(".scroll-reveal").forEach(function(e){
-        t.observe(e)
+        if(isElementVisible(e)){
+          e.classList.add("revealed")
+        }else{
+          t.observe(e)
+        }
       });
       document.querySelectorAll(".counter").forEach(function(e){
         const t=parseInt(e.getAttribute("data-target"),10),
@@ -601,7 +618,16 @@
           console.log("CTA clicked:",this.href)
         })
       })
-    }();
+      }
+      
+      // Ejecutar cuando el DOM esté listo
+      if(document.readyState==="loading"){
+        document.addEventListener("DOMContentLoaded",init)
+      }else{
+        // Si el DOM ya está listo, ejecutar inmediatamente
+        init()
+      }
+    })();
   </script>
 </body>
 </html>

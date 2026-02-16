@@ -81,6 +81,7 @@ app.get('/:landingName', (req, res) => {
       const replacements = {
         '{{META_PIXEL_ID}}': process.env.META_PIXEL_ID || '',
         '{{HOTMART_PRODUCT_ID}}': process.env.HOTMART_PRODUCT_ID || '',
+        '{{GOOGLE_ANALYTICS_ID}}': process.env.GOOGLE_ANALYTICS_ID || '',
       };
       
       Object.keys(replacements).forEach(placeholder => {

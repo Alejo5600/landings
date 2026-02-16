@@ -13,19 +13,25 @@ Este proyecto utiliza variables de entorno para proteger datos sensibles que no 
    ```
    META_PIXEL_ID=tu_id_de_pixel_aqui
    HOTMART_PRODUCT_ID=tu_id_de_producto_aqui
+   GOOGLE_ANALYTICS_ID=tu_id_de_google_analytics_aqui
    ```
 
 ## Variables Requeridas
 
 ### `META_PIXEL_ID`
 - **Descripción**: ID del pixel de Facebook/Meta para tracking de conversiones
-- **Ejemplo**: `25867868779561103`
+- **Ejemplo**: `123456789012345`
 - **Dónde se usa**: En el código del pixel de Meta en el HTML
 
 ### `HOTMART_PRODUCT_ID`
 - **Descripción**: ID del producto en Hotmart para los enlaces de compra
-- **Ejemplo**: `Q104351042I`
+- **Ejemplo**: `Q123456789I`
 - **Dónde se usa**: En todas las URLs de compra (`https://pay.hotmart.com/{ID}`)
+
+### `GOOGLE_ANALYTICS_ID`
+- **Descripción**: ID de Google Analytics (gtag.js) para tracking de visitas
+- **Ejemplo**: `G-XXXXXXXXXX`
+- **Dónde se usa**: En el código de Google Analytics en el HTML (gtag.js)
 
 ## Seguridad
 

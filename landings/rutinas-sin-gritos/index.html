@@ -127,6 +127,117 @@
       -webkit-backdrop-filter:blur(12px);
       border:1px solid rgba(255,255,255,.2)
     }
+    /* Estilos para sección Antes/Después Premium */
+    .comparison-card{
+      border-radius:18px;
+      padding:35px;
+      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+    }
+    @media(max-width:768px){
+      .comparison-card{
+        padding:25px;
+      }
+    }
+    .comparison-card-before{
+      background:linear-gradient(135deg,#fef2f2 0%,#fee2e2 100%);
+      border:1px solid #fecaca;
+    }
+    .comparison-card-before:hover{
+      box-shadow:0 10px 15px -3px rgba(220,38,38,.2),0 4px 6px -2px rgba(220,38,38,.1);
+      transform:translateY(-2px);
+    }
+    .comparison-card-after{
+      background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+      border:1px solid #a7f3d0;
+    }
+    .comparison-card-after:hover{
+      box-shadow:0 10px 15px -3px rgba(16,185,129,.2),0 4px 6px -2px rgba(16,185,129,.1);
+      transform:scale(1.02);
+      filter:drop-shadow(0 0 8px rgba(16,185,129,.3));
+    }
+    .comparison-title{
+      font-size:40px;
+      font-weight:700;
+      color:#1a1a1a;
+      text-align:center;
+      margin-bottom:60px;
+    }
+    @media(max-width:768px){
+      .comparison-title{
+        font-size:28px;
+        margin-bottom:40px;
+      }
+    }
+    .comparison-card-title{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:20px;
+      text-align:center;
+    }
+    .comparison-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:16px;
+      font-size:18px;
+      line-height:1.5;
+    }
+    .comparison-icon{
+      width:24px;
+      height:24px;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      font-size:14px;
+    }
+    .comparison-icon-before{
+      background:#fee2e2;
+      color:#dc2626;
+    }
+    .comparison-icon-after{
+      background:#d1fae5;
+      color:#10b981;
+    }
+    .comparison-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      animation:pulse-arrow 2s ease-in-out infinite;
+    }
+    @media(max-width:768px){
+      .comparison-arrow{
+        display:none;
+      }
+    }
+    @keyframes pulse-arrow{
+      0%,100%{
+        transform:scale(1);
+        opacity:1;
+      }
+      50%{
+        transform:scale(1.1);
+        opacity:.8;
+      }
+    }
+    .comparison-arrow-icon{
+      width:48px;
+      height:48px;
+      background:linear-gradient(135deg,#fb923c 0%,#f97316 100%);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      box-shadow:0 4px 14px rgba(249,115,22,.4);
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-rose-50 via-white to-slate-50">
@@ -135,7 +246,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <a id="buy_sticky" href="https://pay.hotmart.com/{{HOTMART_PRODUCT_ID}}" class="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-rose-600 to-rose-700 text-white font-semibold text-lg shadow-cta hover:shadow-xl hover:scale-105 transition-all duration-300" target="_blank" rel="noopener">
         <span class="font-bold">$7 USD</span>
-        <span>Comprar Ahora</span>
+        <span>Acceder ahora al método</span>
         <span class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
       </a>
     </div>
@@ -152,10 +263,10 @@
             <span class="text-sm font-semibold text-rose-700">Oferta por Tiempo Limitado</span>
           </div>
           <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-balance">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600">El Método R.E.S.P.E.T.O: </span>
-            <span class="block mt-2 text-rose-600">Rutinas Sin Gritos en 7 Días</span>
+            <span class="text-slate-900">¿Tu hijo no coopera aunque le repitas todo mil veces?</span>
           </h1>
-          <p class="text-xl md:text-2xl text-slate-600 leading-relaxed">Un sistema probado que miles de madres latinoamericanas están usando para transformar el caos en calma, los gritos en cooperación, y la culpa en conexión.</p>
+          <p class="text-xl md:text-2xl text-slate-600 leading-relaxed font-semibold">No es desobediencia. Es falta de una rutina clara.</p>
+          <p class="text-lg text-slate-500">Aprende a establecer rutinas con calma, firmeza y sin gritos.</p>
           
           <!-- Sello de Garantía -->
           <div class="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-50/80 border border-emerald-300/50 shadow-sm">
@@ -166,12 +277,16 @@
             </div>
           </div>
           
+          <!-- Urgencia Emocional -->
+          <p class="text-center text-slate-700 font-medium">Cada día sin rutinas claras refuerza el caos.<br>Empieza a cambiarlo hoy.</p>
+          
           <div class="flex flex-col gap-4">
+            <p class="text-center text-sm text-slate-600 font-medium">Guía práctica + plan de implementación de 7 días</p>
             <a id="buy_hero" href="https://pay.hotmart.com/{{HOTMART_PRODUCT_ID}}" class="group relative px-8 py-4 rounded-full bg-gradient-to-r from-rose-600 to-rose-700 text-white font-semibold text-lg shadow-cta hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center" target="_blank" rel="noopener">
-              ¡Sí, quiero acceso ahora!
+              Acceder ahora al método
               <span class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </a>
-            <p class="text-sm text-white/90 text-center">Acceso inmediato · Descarga digital</p>
+            <p class="text-sm text-slate-600 text-center">Acceso inmediato después de comprar</p>
             
             <!-- Sellos de Confianza -->
             <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
@@ -203,6 +318,57 @@
     </div>
   </section>
 
+  <!-- NUEVA SECCION CRO: Antes/Después Premium -->
+  <section class="scroll-reveal py-20 md:py-32 bg-gradient-to-br from-slate-50 to-white" role="region" aria-label="Comparación antes y después">
+    <div class="max-w-[1100px] mx-auto px-6">
+      <h2 class="comparison-title">Así cambia tu casa cuando aplicas rutinas claras</h2>
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-10 items-stretch">
+        <!-- Card Antes -->
+        <div class="comparison-card comparison-card-before" role="article" aria-label="Situación antes">
+          <h3 class="comparison-card-title text-red-700">Antes</h3>
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-before">❌</div>
+              <span class="text-slate-700">Repites mil veces</span>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-before">⚠️</div>
+              <span class="text-slate-700">Terminas gritando</span>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-before">❌</div>
+              <span class="text-slate-700">Tu hijo no coopera</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flecha animada central -->
+        <div class="comparison-arrow hidden md:flex items-center justify-center" aria-hidden="true">
+          <div class="comparison-arrow-icon">→</div>
+        </div>
+        
+        <!-- Card Después -->
+        <div class="comparison-card comparison-card-after" role="article" aria-label="Situación después">
+          <h3 class="comparison-card-title text-emerald-700">Después</h3>
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-after">✔️</div>
+              <span class="text-slate-700">Rutinas claras</span>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-after">✔️</div>
+              <span class="text-slate-700">Expectativas simples</span>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-icon comparison-icon-after">✔️</div>
+              <span class="text-slate-700">Cooperación natural</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ¿Te Suena Familiar? Section -->
   <section class="scroll-reveal py-32 bg-white">
     <div class="max-w-4xl mx-auto px-6">
@@ -215,21 +381,24 @@
           <div class="flex-shrink-0 text-4xl">😰</div>
           <div>
             <h4 class="text-lg font-semibold text-slate-900 mb-2">Gritas más de lo que quisieras</h4>
-            <p class="text-slate-600 leading-relaxed">Cada mañana y cada noche se convierte en una batalla. Le pides, le ruegas, le gritas... y al final terminas haciendo las cosas por él porque ya no aguantas más.</p>
+            <p class="text-slate-600 leading-relaxed">Cada mañana y cada noche se convierte en una batalla.</p>
+            <p class="text-slate-600 leading-relaxed">Le pides, le ruegas, le gritas... y al final terminas haciendo las cosas por él porque ya no aguantas más.</p>
           </div>
         </div>
         <div class="flex items-start gap-6 bg-gradient-to-br from-white to-slate-50 rounded-3xl p-6 shadow-lovable border border-slate-100 card-hover">
           <div class="flex-shrink-0 text-4xl">😔</div>
           <div>
             <h4 class="text-lg font-semibold text-slate-900 mb-2">Te sientes culpable y agotada</h4>
-            <p class="text-slate-600 leading-relaxed">Sabes que no es la madre que quieres ser, pero no sabes cómo hacerlo diferente. Has probado todo: castigos, premios, amenazas... nada funciona a largo plazo.</p>
+            <p class="text-slate-600 leading-relaxed">Sabes que no es la madre que quieres ser, pero no sabes cómo hacerlo diferente.</p>
+            <p class="text-slate-600 leading-relaxed">Has probado todo: castigos, premios, amenazas... nada funciona a largo plazo.</p>
           </div>
         </div>
         <div class="flex items-start gap-6 bg-gradient-to-br from-white to-slate-50 rounded-3xl p-6 shadow-lovable border border-slate-100 card-hover">
           <div class="flex-shrink-0 text-4xl">😤</div>
           <div>
             <h4 class="text-lg font-semibold text-slate-900 mb-2">Las rutinas son una pelea constante</h4>
-            <p class="text-slate-600 leading-relaxed">Tu hijo se resiste, tú te frustras, y ambos terminan llorando. Las rutinas se han convertido en el momento más estresante del día.</p>
+            <p class="text-slate-600 leading-relaxed">Tu hijo se resiste, tú te frustras, y ambos terminan llorando.</p>
+            <p class="text-slate-600 leading-relaxed">Las rutinas se han convertido en el momento más estresante del día.</p>
           </div>
         </div>
         <div class="flex items-start gap-6 bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
@@ -248,8 +417,10 @@
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-balance text-center text-slate-900 mb-12">Lo Que Pasa Si No Actúas Ahora</h2>
       <div class="space-y-6">
-        <p class="text-lg text-slate-600 leading-relaxed">Si sigues haciendo lo mismo, <strong class="text-slate-900">las cosas solo empeorarán.</strong> Tu hijo crecerá asociando las rutinas con estrés y conflicto. Cada vez será más difícil lograr su cooperación.</p>
-        <p class="text-lg text-slate-600 leading-relaxed"><strong class="text-slate-900">En 5 años, cuando tenga 8 o 9 años, será demasiado tarde.</strong> Los patrones de resistencia y conflicto estarán tan arraigados que cambiar será exponencialmente más difícil.</p>
+        <p class="text-lg text-slate-600 leading-relaxed">Si sigues haciendo lo mismo, <strong class="text-slate-900">las cosas solo empeorarán.</strong></p>
+        <p class="text-lg text-slate-600 leading-relaxed">Tu hijo crecerá asociando las rutinas con estrés y conflicto. Cada vez será más difícil lograr su cooperación.</p>
+        <p class="text-lg text-slate-600 leading-relaxed"><strong class="text-slate-900">En 5 años, cuando tenga 8 o 9 años, será demasiado tarde.</strong></p>
+        <p class="text-lg text-slate-600 leading-relaxed">Los patrones de resistencia y conflicto estarán tan arraigados que cambiar será exponencialmente más difícil.</p>
         <div class="bg-gradient-to-br from-red-50 to-rose-50 border-l-4 border-red-500 border border-slate-100 p-6 rounded-3xl mt-8 shadow-sm">
           <p class="text-lg font-semibold text-slate-900 leading-relaxed">⏰ <strong>El tiempo pasa rápido.</strong> Cada día que esperas es un día más de gritos, frustración y distancia emocional con tu hijo.</p>
         </div>
@@ -277,7 +448,9 @@
         <div class="space-y-6">
           <h3 class="text-4xl md:text-5xl font-extrabold text-rose-600 mb-3 tracking-tight">Rutinas Sin Gritos</h3>
           <p class="text-xl text-slate-500 mb-6">Guía Práctica con el Método R.E.S.P.E.T.O (3 a 5 años)</p>
-          <p class="text-lg text-slate-600 leading-relaxed">Este sistema probado te permitirá: <strong class="text-slate-900">reducir los gritos en un 80% o más</strong>, lograr que tus hijos se vistan, coman y preparen para dormir sin peleas, recuperar tu energía emocional y disfrutar de tu maternidad nuevamente.</p>
+          <p class="text-lg text-slate-600 leading-relaxed">Este sistema probado te permitirá: <strong class="text-slate-900">reducir los gritos en un 80% o más</strong>.</p>
+          <p class="text-lg text-slate-600 leading-relaxed">Lograr que tus hijos se vistan, coman y preparen para dormir sin peleas.</p>
+          <p class="text-lg text-slate-600 leading-relaxed">Recuperar tu energía emocional y disfrutar de tu maternidad nuevamente.</p>
         </div>
       </div>
       <div class="bg-gradient-to-br from-rose-50/50 to-white rounded-3xl p-8 md:p-12 shadow-lovable mb-12">
@@ -336,9 +509,10 @@
       </div>
       <div class="text-center">
         <a id="buy_method" href="https://pay.hotmart.com/{{HOTMART_PRODUCT_ID}}" class="group relative inline-block px-8 py-4 rounded-full bg-gradient-to-r from-rose-600 to-rose-700 text-white font-semibold text-lg shadow-cta hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300" target="_blank" rel="noopener">
-          Quiero Aplicar Este Método - $7 USD
+          Acceder ahora al método
           <span class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
         </a>
+        <p class="text-sm text-slate-600 text-center mt-2">Acceso inmediato después de comprar</p>
       </div>
     </div>
   </section>
@@ -506,7 +680,8 @@
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-4xl md:text-5xl font-extrabold text-balance tracking-tight text-slate-900 mb-8">Tu Hijo Te Está Esperando</h2>
       <p class="text-lg text-slate-600 leading-relaxed mb-6">Cada día que pasa es una oportunidad perdida de conectar con tu hijo desde el amor en lugar del conflicto.</p>
-      <p class="text-lg text-slate-600 leading-relaxed mb-8"><strong class="text-slate-900">Por solo $7 USD, puedes transformar tu relación con tu hijo y crear rutinas que funcionen. Miles de madres ya lo están haciendo. Tú también puedes.</strong></p>
+      <p class="text-lg text-slate-600 leading-relaxed mb-4"><strong class="text-slate-900">Por solo $7 USD, puedes transformar tu relación con tu hijo y crear rutinas que funcionen.</strong></p>
+      <p class="text-lg text-slate-600 leading-relaxed mb-8"><strong class="text-slate-900">Miles de madres ya lo están haciendo. Tú también puedes.</strong></p>
       <div class="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
         <div class="bg-white/90 backdrop-blur-xl border border-slate-200 rounded-3xl p-6 text-center shadow-lovable">
           <div class="text-5xl font-extrabold text-rose-600 mb-2 counter" data-target="7">0</div>
@@ -522,9 +697,10 @@
         </div>
       </div>
       <a id="buy_final" href="https://pay.hotmart.com/{{HOTMART_PRODUCT_ID}}" class="group relative inline-block px-8 py-4 rounded-full bg-gradient-to-r from-rose-600 to-rose-700 text-white font-semibold text-lg shadow-cta hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 mb-6" target="_blank" rel="noopener">
-        Sí, Quiero Transformar Mis Rutinas Ahora - $7 USD
+        Acceder ahora al método
         <span class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
       </a>
+      <p class="text-sm text-slate-600 text-center mb-6">Acceso inmediato después de comprar</p>
       <div class="flex flex-wrap gap-3 justify-center mt-6">
         <span class="bg-white/90 backdrop-blur-xl border border-slate-100 px-4 py-2 rounded-full text-sm font-medium text-slate-600 shadow-sm">🔒 Pago 100% Seguro</span>
         <span class="bg-white/90 backdrop-blur-xl border border-slate-100 px-4 py-2 rounded-full text-sm font-medium text-slate-600 shadow-sm">✅ Garantía de 7 Días</span>
@@ -534,6 +710,15 @@
         Una guía amorosa para madres que buscan criar con tranquilidad.<br>
         <strong class="text-slate-900">PequePasos - Creciendo Juntos</strong>
       </p>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCION CRO: Por qué funciona -->
+  <section class="scroll-reveal py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Por qué funciona este método</h2>
+      <p class="text-lg text-slate-600 leading-relaxed">No es teoría.</p>
+      <p class="text-lg text-slate-600 leading-relaxed">Son instrucciones claras paso a paso para que tu hijo coopere sin gritos, amenazas ni castigos.</p>
     </div>
   </section>
 
